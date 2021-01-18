@@ -57,7 +57,7 @@ class InducedSetAttentionBlock(tf.keras.layers.Layer):
         super(InducedSetAttentionBlock, self).__init__()
         self.mab1 = MultiHeadAttentionBlock(d, h, rff1)
         self.mab2 = MultiHeadAttentionBlock(d, h, rff2)
-        self.inducing_points = tf.random.normal(shape=(1, m, d))
+        self.inducing_points = tf.Variable(tf.random.normal(shape=(1, m, d)))
 
     def call(self, x):
         """
@@ -88,7 +88,7 @@ class PoolingMultiHeadAttention(tf.keras.layers.Layer):
         """
         super(PoolingMultiHeadAttention, self).__init__()
         self.mab = MultiHeadAttentionBlock(d, h, rff)
-        self.seed_vectors = tf.random.normal(shape=(1, k, d))
+        self.seed_vectors = tf.Variable(tf.random.normal(shape=(1, k, d)))
         self.rff_s = rff_s
 
     @tf.function

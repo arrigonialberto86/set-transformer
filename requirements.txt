@@ -3,6 +3,6 @@ scipy
 seaborn
 tf-nightly-gpu==2.2.0.dev20200218
 tensorflow-datasets
-tqdm==4.43.0
+tqdm==4.66.3
 pytest
 pillow
